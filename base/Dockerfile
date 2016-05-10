@@ -1,6 +1,6 @@
-FROM opensuse:tumbleweed
+FROM fedora
 
-RUN zypper install -y git zsh vim python python3 python-pip python3-pip htop openssh glibc-locale tmux && rm -rf /var/cache/zypp
+RUN dnf remove -y vim-minimal && dnf install -y git zsh vim python python3 python-pip python3-pip htop openssh tmux openssh-server --best --allowerasing && dnf clean all -y
 RUN git clone https://github.com/r-darwish/dcp.git /root/.dcp && /root/.dcp/install --no-emacs
 RUN chsh -s /bin/zsh
 RUN mkdir /root/.ssh
