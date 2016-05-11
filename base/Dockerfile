@@ -1,6 +1,6 @@
 FROM fedora
 
-RUN dnf remove -y vim-minimal && dnf install -y git zsh vim python python3 python-pip python3-pip htop openssh tmux openssh-server --best --allowerasing && dnf clean all -y
+RUN dnf remove -y vim-minimal && dnf install -y git zsh vim python python3 python-pip python3-pip htop openssh tmux openssh-server procps-ng --best --allowerasing && dnf clean all -y
 RUN git clone https://github.com/r-darwish/dcp.git /root/.dcp && /root/.dcp/install --no-emacs
 RUN chsh -s /bin/zsh
 RUN mkdir /root/.ssh
